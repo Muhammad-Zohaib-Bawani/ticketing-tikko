@@ -1,0 +1,86 @@
+.sb {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 2.4fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0;
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.sb-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: var(--text-dim);
+  min-width: 0;
+}
+.sb-field:focus-within { color: var(--text); }
+
+.sb-text { padding-inline-start: 18px; }
+
+.sb-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 0;
+  min-width: 0;
+}
+.sb-input::placeholder { color: var(--text-mute); font-weight: 400; }
+
+select.sb-input {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-inline-end: 14px;
+}
+select.sb-input option { background: var(--surface); color: var(--text); }
+
+input[type="date"].sb-input::-webkit-calendar-picker-indicator {
+  filter: invert(0.6);
+  cursor: pointer;
+}
+html[data-theme='light'] input[type="date"].sb-input::-webkit-calendar-picker-indicator {
+  filter: invert(0.4);
+}
+
+.sb-divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--border);
+  margin: 8px 0;
+}
+
+.sb-go {
+  border-radius: 999px;
+  padding: 12px 22px;
+  margin-inline-start: 6px;
+}
+
+@media (max-width: 900px) {
+  .sb {
+    grid-template-columns: 1fr;
+    border-radius: var(--radius-lg);
+    padding: 10px;
+    gap: 4px;
+  }
+  .sb-field {
+    padding: 10px 14px;
+    background: var(--surface-2);
+    border-radius: var(--radius);
+  }
+  .sb-divider { display: none; }
+  .sb-go { width: 100%; }
+}
